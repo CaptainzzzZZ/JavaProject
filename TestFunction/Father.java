@@ -1,7 +1,8 @@
 package TestFunction;
 
+//final关键字 放在类中类不可以被继承 放在方法方法不可以被调用 放在变量变量变成常量
 public class Father {
-    private String name;
+    private String name= "000";
     private int age;
     String id;
     public String getName(){
@@ -25,6 +26,14 @@ public class Father {
     }
     public Father(String id){
         this.id=id;
+    }
+    public Father(String name,int age,String id){
+        this.name=name;
+        this.age=age;
+        this.id=id;
+    }
+    public Father(){
+
     }
 
 }
