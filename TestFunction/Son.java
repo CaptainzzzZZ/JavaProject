@@ -24,6 +24,14 @@ public class Son extends Father{
         //只要你自己开始写了一个当需要创建一个空对象时你就需要自己写一个空的构造方法
         super();
     }
+
+    @Override
+    public String toString() {
+        return "Son{" +
+                "id='" + id + '\'' +
+                '}';
+    }
+
     public static void main(String[] args) {
         Son s1=new Son("654321");
         Son s2=new Son("sonn",16,"123321");
