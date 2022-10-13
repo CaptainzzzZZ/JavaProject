@@ -5,19 +5,40 @@ public class Father {
     private String name= "000";
     private int age;
     String id;
-    public String getName(){
-        return this.name;
+    //自动填入alt+insert
+    public String getName() {
+        return name;
     }
-    public int  getAge(){
-        return this.age;
-    }
-    public void setName(String name){
-        this.name=name;
-    }
-    public void setAge(int age){
-        this.age=age;
 
+    public void setName(String name) {
+        this.name = name;
     }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @Override//这里重写了  Object类的toString()方法
+    public String toString() {
+        return "Father{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", id='" + id + '\'' +
+                '}';
+    }
+
     public void printInfo(){
         System.out.println("这是爸爸");
         System.out.println("age="+age);
@@ -33,7 +54,8 @@ public class Father {
         this.id=id;
     }
     public Father(){
-
     }
+
+
 
 }
