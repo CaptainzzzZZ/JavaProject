@@ -2,6 +2,8 @@
 package TestAPI;
 
 import java.util.Scanner;
+import java.util.Random ;
+
 
 public class TestPoint {
 	public static String getName(String s) {
@@ -28,6 +30,37 @@ public class TestPoint {
 		return true;
 	}
 	public static void main(String[] args) {
+		//StringBuffer append deleteCharAt delete insert setCharAt replace reverse
+		StringBuffer sb=new StringBuffer("xxxxxxoooooooo");
+		sb.append("xxxooo");
+		System.out.println(sb);
+		sb.insert(1, "XXXOOO");
+		System.out.println(sb);
+		sb.delete(1, 2);
+		System.out.println(sb);
+		sb.deleteCharAt(1);
+		System.out.println(sb);
+		sb.setCharAt(1, 'X');
+		System.out.println(sb);
+		sb.replace(1, 2, "XXXX");
+		System.out.println(sb);
+		sb.reverse();
+		System.out.println(sb);
+		 
+	}
+	public static void main8(String[] args) {
+		StringBuilder sb=new StringBuilder("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+		for(int i=0;i<5;i++) {
+			int j=new Random().nextInt(26);
+			char t=sb.charAt(j);
+			sb.setCharAt(i,sb.charAt(j));
+			sb.setCharAt(j, t);
+			
+		}
+		String ret=sb.substring(0, 5);
+		System.out.println(ret);
+	}
+	public static void main7(String[] args) {
 		System.out.println("请输入一个身份证号：");
 		Scanner sc	= new Scanner(System.in);
 		String str=sc.nextLine();
@@ -48,7 +81,7 @@ public class TestPoint {
 		
 	}
 	public static void main5(String[] args) {
-		Scanner sc=new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		String str=sc.nextLine();
 		boolean ret=ishuiwen(str);
 		if(ret) {
