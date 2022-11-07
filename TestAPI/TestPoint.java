@@ -2,6 +2,10 @@
 package TestAPI;
 
 import java.util.Scanner;
+
+import javax.swing.text.StyledEditorKit.ForegroundAction;
+
+import java.awt.font.FontRenderContext;
 import java.util.Random ;
 
 
@@ -30,6 +34,50 @@ public class TestPoint {
 		return true;
 	}
 	public static void main(String[] args) {
+		StringBuffer sb1=new StringBuffer("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+		StringBuffer sb2=new StringBuffer("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+		for(int i=0;i<5;i++) {
+			int j=new Random().nextInt(26);
+			char t=sb1.charAt(i);
+			sb1.setCharAt(i,sb1.charAt(j));
+			sb1.setCharAt(j, t);
+			
+		}
+		String ret=sb1.substring(0, 5);
+		System.out.println(ret);
+		for(int i=0;i<5;i++) {
+			int j=new Random().nextInt(26);
+			char t=sb2.charAt(i);
+			sb2.setCharAt(i,sb2.charAt(j));
+			sb2.setCharAt(j, t);
+			
+		}
+		String ret2=sb2.substring(0, 5);
+		System.out.println(ret2);
+		int a=0,b=0;
+		for (int i = 0; i < sb1.length(); i++) {
+			for (int j = 0; j < sb2.length(); j++) {
+				if(sb1.charAt(i)==sb2.charAt(j))
+					if(i==j) {
+						a++;
+					}
+					else {
+						b++;
+					}
+				break;
+			}
+		}
+		System.out.println(a+"a"+b+"b");
+	}
+	public static void main10(String[] args) {
+		int[] array1=new int[] {0,1,2,3,4,5,6,7,8,9};
+		int[] array2=new int[10];
+		System.arraycopy(array1, 1, array2, 2, 4);
+		for(int x:array2) {
+			System.out.print(x);
+		}
+	}
+	public static void main9(String[] args) {
 		//StringBuffer append deleteCharAt delete insert setCharAt replace reverse
 		StringBuffer sb=new StringBuffer("xxxxxxoooooooo");
 		sb.append("xxxooo");
@@ -52,7 +100,7 @@ public class TestPoint {
 		StringBuilder sb=new StringBuilder("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 		for(int i=0;i<5;i++) {
 			int j=new Random().nextInt(26);
-			char t=sb.charAt(j);
+			char t=sb.charAt(i);
 			sb.setCharAt(i,sb.charAt(j));
 			sb.setCharAt(j, t);
 			
