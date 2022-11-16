@@ -2,21 +2,21 @@ import java.util.Scanner;
 
 public class DayDayLeetcode {
     public static void main(String[] args) {
-        String s="bbbbb";
-        if (s==" "){
-            System.out.println("空串");
-        }
-        int count=1;
+        int[] nums={1,3,2,1,0,1,3,5,8,5,8};
+        int val=1;
+        int newnums=0;
+        int oldnums=0;
 
-        for (int i = 0; i < s.length(); i++) {
-            for (int j = i+1; j <s.length() ; j++) {
-                if(s.charAt(i)!=s.charAt(j)){
-                    count++;
-                }
+        for ( oldnums = 0; oldnums < nums.length; oldnums++) {
+            if(nums[oldnums]!=val){
+                nums[newnums]=nums[oldnums];
+                newnums++;
             }
         }
+        System.out.println(newnums);
     }
     public static void main2(String[] args) {
+        //在数组中找两数之和
         int[] nums=new int[10];
         int target=5;
         Scanner scanner=new Scanner(System.in);
