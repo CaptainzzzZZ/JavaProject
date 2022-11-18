@@ -2,6 +2,35 @@ import java.util.Scanner;
 
 public class DayDayLeetcode {
     public static void main(String[] args) {
+
+    }
+    public static void main4(String[] args) {
+        Scanner scanner=new Scanner(System.in);
+        String S=scanner.nextLine();
+        if(S.length()==0){
+            System.out.println("空串");
+        }
+        int count=1;
+        StringBuilder sb=new StringBuilder();
+        char ch=S.charAt(0);
+
+        for (int i = 1; i < S.length(); i++) {
+            if(S.charAt(i)==ch){
+                count++;
+
+            }
+            else{
+                sb.append(ch);
+                sb.append(count);
+                ch=S.charAt(i);
+                count=1;
+            }
+        }
+        sb.append(ch);
+        sb.append(count);
+        System.out.println(sb.length()<=S.length()?sb.toString():S);
+    }
+    public static void main3(String[] args) {
         int[] nums={1,3,2,1,0,1,3,5,8,5,8};
         int val=1;
         int newnums=0;
