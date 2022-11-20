@@ -2,7 +2,25 @@ import java.util.Scanner;
 
 public class DayDayLeetcode {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String str = new String(scanner.nextLine());
+        String str2 = new String(scanner.nextLine());
+        Integer n1=Integer.valueOf(Integer.parseInt(str,2));
+        int nn1=n1.intValue();
+        Integer n2=Integer.valueOf(Integer.parseInt(str2,2));
+        int nn2=n2.intValue();
 
+        Integer oxret=nn1+nn2;
+        String binret=Integer.toBinaryString(oxret);
+        System.out.println(binret);
+
+    }
+    public static void main5(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int x= scanner.nextInt();
+        String str=(new StringBuilder(x+"")).reverse().toString();
+        String str2=new String(x+"");
+        System.out.println(str.equals(str2));
     }
     public static void main4(String[] args) {
         Scanner scanner=new Scanner(System.in);
