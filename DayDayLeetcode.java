@@ -1,7 +1,68 @@
 import java.util.Scanner;
+import java.util.Stack;
+
 
 public class DayDayLeetcode {
     public static void main(String[] args) {
+        int[] nums={1,1,2,3,4,5,5,6};//双指针删除有序数组重复元素
+        int slow = 1;
+        int fast= 1;
+        while(fast< nums.length){
+            if(nums[fast]!=nums[fast-1]){
+                nums[slow]=nums[fast];
+                slow++;
+            }
+            fast++;
+        }
+        for (int i :nums) {
+            System.out.println(i);
+        }
+
+    }
+    public static void main9(String[] args) {
+        String ss="abc";
+        System.out.println(ss.replaceAll("a", "").length());///字符串剩余几个
+        int count=0;
+        for (int i = 1; i <2021 ; i++) {
+            String str=i+"";
+            if(str.contains("2")){
+                count=count+str.length()-str.replaceAll("2","").length();
+                //replaceAll替换目标exp后剩余个数
+            }
+        }
+        System.out.println(count);
+    }
+    public static void main8(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double n= scanner.nextInt();
+        int max=0;
+        int min=100;
+        int sum=0;
+        int nn=(int)n;
+        while(n-->0){
+            int m= scanner.nextInt();
+            if(m>max){
+                max=m;
+            }
+            if(m<min){
+                min=m;
+            }
+            sum+=m;
+        }
+        System.out.println(max);
+        System.out.println(min);
+        System.out.println(sum/nn);
+    }
+    public static void main7(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String str=new String(scanner.nextLine());
+        if(str.length()==0||str.length()%2==1){
+            return ;
+        }
+        Stack<Object> stack = new Stack<>();
+
+    }
+    public static void main6(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String str = new String(scanner.nextLine());
         String str2 = new String(scanner.nextLine());
