@@ -1,9 +1,34 @@
+import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.Stack;
 
 
 public class DayDayLeetcode {
     public static void main(String[] args) {
+        //删除链表重复元素
+        LinkedList<Integer> linkedList = new LinkedList<>();
+        linkedList.add(1);
+        linkedList.add(1);
+        linkedList.add(2);
+        linkedList.add(3);
+        linkedList.add(4);
+        linkedList.add(4);
+        if(linkedList.size()==0){
+            System.out.println("error");
+        }
+        for (int i = 0; i < linkedList.size(); i++) {
+            for (int j = i+1; j < linkedList.size() ; j++) {
+                if(linkedList.get(i)== linkedList.get(j)){
+                    linkedList.remove(j);
+                }
+            }
+        }
+        for (Object o :linkedList) {
+            System.out.println(o);
+        }
+
+    }
+    public static void main10(String[] args) {
         int[] nums={1,1,2,3,4,5,5,6};//双指针删除有序数组重复元素
         int slow = 1;
         int fast= 1;
