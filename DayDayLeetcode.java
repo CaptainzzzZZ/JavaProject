@@ -5,6 +5,17 @@ import java.util.Stack;
 
 public class DayDayLeetcode {
     public static void main(String[] args) {
+        char[] s={'h','e','l','l','o'};
+        //反转字符串
+        int n=s.length;
+        for (int i = 0,j=n-1; i<j ; i++,j--) {
+            char tmp=s[i];
+            s[i]=s[j];
+            s[j]=tmp;
+        }
+        System.out.println(s);
+    }
+    public static void main11(String[] args) {
         //删除链表重复元素
         LinkedList<Integer> linkedList = new LinkedList<>();
         linkedList.add(1);
