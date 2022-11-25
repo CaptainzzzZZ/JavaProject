@@ -5,6 +5,15 @@ import java.util.Stack;
 
 public class DayDayLeetcode {
     public static void main(String[] args) {
+        int[] nums={1,1,2,2,3,3,5};
+        //找出单个元素
+        int ret=0;
+        for (int num :nums) {
+            ret=ret^num;
+        }
+        System.out.println(ret);
+    }
+    public static void main12(String[] args) {
         char[] s={'h','e','l','l','o'};
         //反转字符串
         int n=s.length;
