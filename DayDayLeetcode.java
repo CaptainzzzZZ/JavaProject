@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.Stack;
@@ -5,6 +6,16 @@ import java.util.Stack;
 
 public class DayDayLeetcode {
     public static void main(String[] args) {
+        int[] nums={3,2,0};
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length; i++) {
+            if(nums[i]!=i){
+                System.out.println(i);
+                break;
+            }
+        }
+    }
+    public static void main13(String[] args) {
         int[] nums={1,1,2,2,3,3,5};
         //找出单个元素
         int ret=0;
@@ -62,7 +73,6 @@ public class DayDayLeetcode {
         for (int i :nums) {
             System.out.println(i);
         }
-
     }
     public static void main9(String[] args) {
         String ss="abc";
