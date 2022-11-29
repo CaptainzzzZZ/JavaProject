@@ -6,6 +6,19 @@ import java.util.Stack;
 
 public class DayDayLeetcode {
     public static void main(String[] args) {
+        int[] arr={1,4,2,5,3};
+        int sum=0;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 1; j+i<=arr.length ; j+=2) {
+                int k=i+j-1;
+                for (int l = i; l <=k ; l++) {
+                    sum+=arr[l];
+                }
+            }
+        }
+        System.out.println(sum);
+    }
+    public static void main14(String[] args) {
         int[] nums={3,2,0};
         Arrays.sort(nums);
         for (int i = 0; i < nums.length; i++) {
