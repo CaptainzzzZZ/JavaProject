@@ -6,7 +6,23 @@ import java.util.Stack;
 
 public class DayDayLeetcode {
     public static void main(String[] args) {
+        //移除非字母后判断是否回文
+        Scanner scanner = new Scanner(System.in);
+        String s= scanner.nextLine();
+        StringBuilder stringBuilder=new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            char ch=s.charAt(i);
+            if(Character.isLetterOrDigit(ch)){
+                stringBuilder.append(Character.toLowerCase(ch));
+            }
+        }
+//        StringBuilder reve=stringBuilder.reverse();//err此时的stringBuilder已经被翻转 后面怎么equal都是true
+        StringBuilder reve=new StringBuilder(stringBuilder).reverse();
+        System.out.println(reve.toString().equals(stringBuilder.toString()));
+    }
+    public static void main15(String[] args) {
         int[] arr={1,4,2,5,3};
+        //奇数个元素之和
         int sum=0;
         for (int i = 0; i < arr.length; i++) {
             for (int j = 1; j+i<=arr.length ; j+=2) {
