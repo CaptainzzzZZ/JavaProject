@@ -1,11 +1,74 @@
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Scanner;
-import java.util.Stack;
+import java.util.*;
 
 
 public class DayDayLeetcode {
     public static void main(String[] args) {
+        //双指针--找出数组两个数的和等于target
+        int[] nums={1,2,3,5,8,10};
+        int target=5;
+        int begin=0;
+        int end= nums.length-1;
+        while(true){
+            if(nums[begin]+nums[end]==target){
+                System.out.println(begin+" "+end);
+                break;
+            } else if (nums[begin]+nums[end]>target) {
+                end--;//加起来大了 --去找小的
+            } else if (nums[begin]+nums[end]<target) {
+                begin++;//加起来小了 ++去找大的
+            }
+        }
+    }
+    public static void main19(String[] args) {
+        //二分查找，target不在就放进去返回当前索引
+        int[] nums={1,3,5,6,9};
+        int target=2;
+        int left=0;
+        int right = nums.length-1;
+        while(left<=right){
+            int mid=(left+right)>>>1;
+            if(nums[mid]>target){
+                right=mid-1;
+            } else if (nums[mid]<target) {
+                left=mid+1;
+            }
+            else {
+                System.out.println(mid);
+            }
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if(nums[i]>target){
+                System.out.println(i);
+                break;
+            }
+        }
+
+    }
+    public static void main18(String[] args) {
+        //找出数组重复元素
+        int[] nums={1,2,2,1,3};
+        HashSet<Object> hashSet = new HashSet<>();
+        for (int i = 0; i < nums.length ; i++) {
+            if (!hashSet.add(nums[i])){
+                System.out.println(nums[i]);
+            }
+        }
+    }
+    public static void main17(String[] args) {
+        //前缀和--查找数组中心下标
+        int[] nums={1,2,3,4,7};
+        int sumR=Arrays.stream(nums).sum();
+        int sumL=0;
+        for (int i = 0; i < nums.length; i++) {
+            sumR=sumR-nums[i];//i位置不不参与运算。需要将i位置值排除在于sumleft比较
+            if(sumL==sumR){
+                System.out.println(i);
+            }
+            sumL=sumL+nums[i];
+        }
+
+    }
+    public static void main16(String[] args) {
         //移除非字母后判断是否回文
         Scanner scanner = new Scanner(System.in);
         String s= scanner.nextLine();
