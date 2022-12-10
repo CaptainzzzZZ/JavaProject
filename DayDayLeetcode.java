@@ -2,7 +2,48 @@ import java.util.*;
 
 
 public class DayDayLeetcode {
+    @SuppressWarnings({"all"})
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n= scanner.nextInt();
+        int score=0;
+        int sum=0;
+        int tem=n;
+        int count60=0 ,count85=0;
+        while(n-->0){
+            score= scanner.nextInt();
+            if (score>=60&&score<85){
+                count60++;
+            }
+            else if (score>=85&&score<=100){
+                count85++;
+            }
+        }
+        System.out.println((int)count60*1.0/tem*100+"%");
+        System.out.println((int)count85*1.0/tem*100+"%");
+
+
+    }
+    public static void main21(String[] args) {
+        //计算字符串中重复元素个数
+        Scanner scanner = new Scanner(System.in);
+        String str= scanner.nextLine();
+        int[] ints = new int[26];
+        for (int i = 0; i < str.length(); i++) {
+            ints[str.charAt(i)-'a']++;
+        }
+        int max=0;
+        char ch='a';
+        for (int i = 0; i < 26; i++) {
+            if(ints[i]>max){
+                max=ints[i];
+                 ch=(char)(i+'a');
+            }
+        }
+        System.out.println(max);
+        System.out.println(ch);
+    }
+    public static void main20(String[] args) {
         //双指针--找出数组两个数的和等于target
         int[] nums={1,2,3,5,8,10};
         int target=5;
