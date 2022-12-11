@@ -2,8 +2,28 @@ import java.util.*;
 
 
 public class DayDayLeetcode {
-    @SuppressWarnings({"all"})
     public static void main(String[] args) {
+        //第一百个质数
+        int count = 0;
+        for (int i = 2; i <= 20000 ; i++) {
+            boolean flag = true;
+            for (int j = 2; j < i; j++) {
+                if (i % j == 0){
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag){
+                count++;
+            }
+            if(count == 100){
+                System.out.println(i);
+                break;
+            }
+        }
+
+    }
+    public static void main22(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n= scanner.nextInt();
         int score=0;
