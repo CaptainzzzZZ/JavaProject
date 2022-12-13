@@ -1,27 +1,194 @@
+import java.math.BigInteger;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
-
+@SuppressWarnings({"all"})
 public class DayDayLeetcode {
     public static void main(String[] args) {
-        //第一百个质数
-        int count = 0;
-        for (int i = 2; i <= 20000 ; i++) {
-            boolean flag = true;
-            for (int j = 2; j < i; j++) {
-                if (i % j == 0){
-                    flag = false;
-                    break;
-                }
+        StringBuilder stringBuilder = new StringBuilder();
+        char[] chars = {'A','B','C','D','E','F','G','H','I','J','K',
+                          'L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+        int n=2019;
+        while(n>0){
+            stringBuilder.append(chars[(n%26)-1]);
+            n=n/26;
+        }
+        System.out.println(stringBuilder.reverse().toString());
+    }
+    public static int SingleChar(String str){
+        int[] arr=new int[26];
+        int ret=0;
+        for (int i = 0; i < str.length(); i++) {
+            arr[str.charAt(i)-'a']++;
+        }
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i]==1){
+                ret++;
             }
-            if (flag){
-                count++;
+        }
+        return ret;
+    }
+    public static void main32(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String str= scanner.nextLine();
+        if (str.length()==0)return ;
+        int count=0;
+        for (int i = 0; i < str.length(); i++) {
+            for (int j = i; j < str.length(); j++) {
+                String S=str.substring(i,j+1);
+                int ret=SingleChar(S);
+                count+=ret;
             }
-            if(count == 100){
+        }
+        System.out.println(count);
+    }
+    public static void main31(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int N= scanner.nextInt();
+        int[] ints = new int[N];
+        for (int i = 0; i < ints.length; i++) {
+            ints[i]= scanner.nextInt();
+        }
+        Arrays.sort(ints);
+        for (Object o :ints) {
+            System.out.print(o+" ");
+        }
+        System.out.println();
+        for (int i = ints.length-1; i >=0 ; i--) {
+            System.out.print(ints[i]+" ");
+        }
+
+    }
+    public static void main30(String[] args) {
+        int ret=1;
+        for (int i = 0; i < 20; i++) {
+            ret=ret+i*4;
+        }
+        System.out.println(ret);
+    }
+    public static void main29(String[] args) throws ParseException {
+        Scanner scanner = new Scanner(System.in);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+        long n= scanner.nextLong();
+        Date date = new Date(n);
+        String time=dateFormat.format(date);
+        System.out.println(time);
+    }
+    public static void main28(String[] args) {
+        for (int i = 19000101; i <20120312 ; i++) {
+            int yyyy=i/10000;
+            int mm=i/100%100;
+            int dd=i%100;
+            if(i%2012==0&&i%3==0&mm==6&&i%12==0&&dd<=31){
+                System.out.println(i);
+            }
+        }
+    }
+    public static boolean check(int n){
+        String str=n+"";
+        for (int i = 0; i < str.length(); i++) {
+            if(str.charAt(i)=='0'||str.charAt(i)=='1'||str.charAt(i)=='9'||str.charAt(i)=='2'){
+                return true;
+            }
+        }
+        return false;
+    }
+    public static void main27(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n= scanner.nextInt();
+        int sum=0;
+        for (int i = 1; i <=n ; i++) {
+            if (check(i)){
+                sum+=i;
+            }
+        }
+        System.out.println(sum);
+    }
+    public static boolean huiwen2(String str){
+        HashSet<Object> hashSet = new HashSet<>();
+        for (int i = 0,j=str.length()-1; i <=j ; j--,i++) {
+            if(str.charAt(i)!=str.charAt(j)){
+                return false;
+            }
+        }
+        if(!(str.charAt(0)==str.charAt(2)&&str.charAt(1)==str.charAt(3))&&
+                (str.charAt(4)==str.charAt(6)&&str.charAt(5)==str.charAt(7))){
+            return false;
+        }
+        return true;
+
+    }
+    public static boolean huiwen1(String str){
+        for (int i = 0,j=str.length()-1; i <=j ; j--,i++) {
+            if(str.charAt(i)!=str.charAt(j)){
+                return false;
+            }
+        }
+        return true;
+    }
+    public static void main26(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int num= scanner.nextInt();
+        for (int i = num+1; i <=89991231 ; i++) {
+            if(huiwen1(i+"")){
                 System.out.println(i);
                 break;
             }
         }
+        for (int i = num+1; i <=89991231 ; i++) {
+            if(huiwen2(i+"")){
+                System.out.println(i);
+                break;
+            }
+        }
+    }
+    public static void main25(String[] args) {
+        String str=new Scanner(System.in).nextLine();
+        int count=0;
+        for (int i = 0; i < str.length(); i++) {
+            if(str.charAt(i)=='a'||str.charAt(i)=='e'||str.charAt(i)=='i'||str.charAt(i)=='o'||str.charAt(i)=='u'){
+                count++;
+            }
+        }
+        System.out.println(count);
+        System.out.println(str.length()-count);
+    }
+    public static void main24(String[] args) {
+        int count=0;
+        for (int i = 1; i<20210; i++) {
+            String str=i+"";
+            for (int j = 0; j <str.length(); j++) {
+                if(str.charAt(j)=='1')
+                {
+                    count++;
+                }
+                if (count==2021){
+                    System.out.println(str);
+                    break;
+                }
 
+            }
+        }
+    }
+    public static void main23(String[] args) {
+        int count=0;
+        for (int i = 2; i < 20000; i++) {
+            boolean flag=true;
+            for (int j = 2; j <i ; j++) {
+                if(i%j==0){
+                    flag=false;
+                    break;
+                }
+            }
+            if(flag){
+                count++;
+            }
+            if (count==2){
+                System.out.println(i);
+                break;
+            }
+        }
     }
     public static void main22(String[] args) {
         Scanner scanner = new Scanner(System.in);
