@@ -1,3 +1,4 @@
+import java.beans.BeanInfo;
 import java.math.BigInteger;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -5,6 +6,81 @@ import java.util.*;
 
 @SuppressWarnings({"all"})
 public class DayDayLeetcode {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n= scanner.nextInt();
+        for (int i = 0; i < n; i++) {
+            int t= scanner.nextInt();
+
+        }
+    }
+    public static void main46(String[] args) {
+        int count=0;
+        for (int i = 1; i <= 1200000; i++) {
+            if (1200000%i==0){
+                count++;
+            }
+        }
+        System.out.println(count);
+    }
+    public static void main45(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n=scanner.nextInt();
+        int[] ints = new int[n];
+        long sum=0;
+
+        for (int i = 0; i < n; i++) {
+            ints[i]= scanner.nextInt();
+            sum+=ints[i];
+        }
+//        for (int i = 0; i < ints.length ; i++) {
+//            for (int j = i+1; j < ints.length ; j++) {
+//                sum=sum+ints[i]*ints[j];
+//            }
+//        }
+//        System.out.println(sum);
+        long ret=0;
+        for (int i = 0; i < ints.length; i++) {
+            ret=ret+ints[i]*(sum-ints[i]);
+            sum-=ints[i];
+        }
+        System.out.println(ret);
+    }
+    public static void main44(String[] args) {
+        int sum=0;
+        for (int i = 1901; i <=2000 ; i++) {
+            if (i%100==0&&i%4==0||i%400==0){
+                sum+=366;
+            }
+            else{
+                sum+=365;
+            }
+        }
+        System.out.println(sum/7);
+    }
+    public static void main43(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[][] ints = new int[10][10];
+        BigInteger bigInteger = new BigInteger("1");
+        int count=0;
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                ints[i][j]= scanner.nextInt();
+                BigInteger bigInteger1 = new BigInteger(ints[i][j] + "");
+                bigInteger=bigInteger.multiply(bigInteger1);
+            }
+        }
+        String str=bigInteger.toString();
+        int end=str.length()-1;
+        while(true){
+            if (str.charAt(end)!=0){
+                break;
+            }
+            count++;
+            end--;
+        }
+        System.out.println(count);
+    }
     public static boolean is24(int n){
         while(n!=0){
             if(n%10==2||n%10==4){
@@ -14,7 +90,7 @@ public class DayDayLeetcode {
         }
         return true;
     }
-    public static void main(String[] args) {
+    public static void main42(String[] args) {
         int ret=0;
         for (int i = 0; i <=2019; i++) {
             for (int j = 0; j <=2019 ; j++) {
