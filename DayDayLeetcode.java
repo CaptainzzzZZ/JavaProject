@@ -6,14 +6,7 @@ import java.util.*;
 
 @SuppressWarnings({"all"})
 public class DayDayLeetcode {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int n= scanner.nextInt();
-        for (int i = 0; i < n; i++) {
-            int t= scanner.nextInt();
 
-        }
-    }
     public static void main46(String[] args) {
         int count=0;
         for (int i = 1; i <= 1200000; i++) {
