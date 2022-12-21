@@ -15,18 +15,13 @@ public class DayDayLeetcode {
         return 0;
     }
     public static void main(String[] args) {
-//        long[] longs = new long[2021];
-//        longs[1]=1;
-//        longs[2]=1;
-//        for (int i = 3; i <=30 ; i++) {
-//            longs[i]=longs[i-1]+longs[i-2];
-//        }
-//        System.out.println(GCD(longs[5], longs[20]));
-
-        BigInteger b0 = new BigInteger("0");
-        BigInteger b1 = new BigInteger("1");
-        BigInteger b2 = new BigInteger("1");
-
+        long[] longs = new long[2021];
+        longs[1]=1;
+        longs[2]=1;
+        for (int i = 3; i <=30 ; i++) {
+            longs[i]=longs[i-1]+longs[i-2];
+        }
+        System.out.println(GCD(longs[5], longs[20]));
     }
     public static void main48(String[] args) {
         int count=0;
