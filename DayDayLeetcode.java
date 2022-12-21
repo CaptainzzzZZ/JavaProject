@@ -1,4 +1,3 @@
-import java.beans.BeanInfo;
 import java.math.BigInteger;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -6,7 +5,53 @@ import java.util.*;
 
 @SuppressWarnings({"all"})
 public class DayDayLeetcode {
+    public static int GCD(long n1,long n2){
+        long min=n1<n2?n1:n2;
+        for (long i = min; i >=1 ; i--) {
+            if (n1%i==0 && n2%i==0){
+                return (int)i;
+            }
+        }
+        return 0;
+    }
+    public static void main(String[] args) {
+//        long[] longs = new long[2021];
+//        longs[1]=1;
+//        longs[2]=1;
+//        for (int i = 3; i <=30 ; i++) {
+//            longs[i]=longs[i-1]+longs[i-2];
+//        }
+//        System.out.println(GCD(longs[5], longs[20]));
 
+        BigInteger b0 = new BigInteger("0");
+        BigInteger b1 = new BigInteger("1");
+        BigInteger b2 = new BigInteger("1");
+
+    }
+    public static void main48(String[] args) {
+        int count=0;
+        for (int i = 20101; i <=21231 ; i++) {
+            int t=i%10000;
+            if ((t/1000==t/100%10+1)&&(t/100%10==t/10%10+1)||(t/100%10==t/10%10+1)&&(t/10%10==t%10+1)){
+                count++;
+            }
+        }
+        System.out.println(count);
+    }
+    public static void main47(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String str="WHERETHEREISAWILLTHEREISAWAY";
+        char[] arr=str.toCharArray();
+        ArrayList arrayList = new ArrayList();
+        for (int i = 0; i < arr.length; i++) {
+            arrayList.add(arr[i]);
+        }
+        Collections.sort(arrayList);
+        for (int i = 0; i < arrayList.size(); i++) {
+            System.out.print(arrayList.get(i));
+        }
+
+    }
     public static void main46(String[] args) {
         int count=0;
         for (int i = 1; i <= 1200000; i++) {
