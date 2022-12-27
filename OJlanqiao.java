@@ -9,6 +9,11 @@ import java.util.Scanner;
 @SuppressWarnings({"all"})
 public class OJlanqiao {
     public static void main(String[] args) {
+        String rs="2022";
+        System.out.println(Integer.parseInt(rs,9));
+        System.out.println(Integer.parseInt("99",16));
+    }
+    public static void main15(String[] args) {
         for(int i = 1;;i++){
             int b = i;
             if(b % 5 == 1){
