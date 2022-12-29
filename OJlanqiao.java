@@ -1,17 +1,63 @@
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Scanner;
+import java.util.*;
 
 
 @SuppressWarnings({"all"})
 public class OJlanqiao {
     public static void main(String[] args) {
+        int n=new Scanner(System.in).nextInt();
+        if (n<=2) System.out.println(1);
+        else if (n>2&&n<=4) System.out.println(2);
+        else if (n==5) System.out.println(3);
+        else if (n==6) System.out.println(4);
+        else if(n==7) System.out.println(6);
+        else if(n==8) System.out.println(7);
+        else if(n>=9) System.out.println(8);
+
+    }
+    public static void main19(String[] args) {
+        LinkedList<Integer> list = new LinkedList<>();
+        for (int i = 1; i <=10 ; i++) {
+            list.add(i);
+        }
+        Scanner scanner = new Scanner(System.in);
+        int n=scanner.nextInt();
+        int[] ints = new int[n];
+        for (int i = 0; i < ints.length ; i++) {
+            ints[i]= scanner.nextInt();
+        }
+        for (int i = 0; i < ints.length; i++) {
+            list.remove((Integer) ints[i]);
+            list.addFirst(ints[i]);
+            for (int j = 0; j <10 ; j++) {
+                System.out.print(list.get(j)+" ");
+            }
+            System.out.println();
+        }
+    }
+    public static void main18(String[] args) {
+        //冒泡最小字典序
+        Scanner scanner = new Scanner(System.in);
+        String str="gfedcba";
+        int count=0;
+        char[] array = str.toCharArray();
+        for (int i = 0; i < array.length-1 ; i++) {
+            for (int j = 0; j < array.length-1-i; j++) {
+                if(array[j]>array[j+1]){
+                    count++;
+                    char t=array[j];
+                    array[j]=array[j+1];
+                    array[j+1]=t;
+                }
+            }
+        }
+        System.out.println(Arrays.toString(array));
+        System.out.println(count);
+    }
+    public static void main16(String[] args) {
         String rs="2022";
-        System.out.println(Integer.parseInt(rs,9));
-        System.out.println(Integer.parseInt("99",16));
+        System.out.println(Integer.parseInt("11",2));
     }
     public static void main15(String[] args) {
         for(int i = 1;;i++){
