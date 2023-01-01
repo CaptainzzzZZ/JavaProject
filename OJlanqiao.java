@@ -6,6 +6,165 @@ import java.util.*;
 @SuppressWarnings({"all"})
 public class OJlanqiao {
     public static void main(String[] args) {
+        String str=new Scanner(System.in).nextLine();
+        String[] arr=str.split(" ");
+
+    }
+    public static void main68(String[] args) {
+        HashSet hashSet = new HashSet();
+        Scanner scanner = new Scanner(System.in);
+        int n= scanner.nextInt();
+        for (int i = 0; i < n; i++) {
+            int m= scanner.nextInt();
+            hashSet.add(m);
+        }
+        ArrayList arrayList = new ArrayList(hashSet);
+        Collections.sort(arrayList);
+        System.out.println(arrayList.size());
+        for (int i = 0; i < arrayList.size(); i++) {
+            System.out.print(arrayList.get(i)+" ");
+        }
+    }
+    public static void main66(String[] args) {
+        //汉诺塔问题n个塔就是2^n-1
+        BigInteger bigInteger = new BigInteger("2");
+        bigInteger=bigInteger.pow(64).subtract(new BigInteger("1"));
+        System.out.println(bigInteger);
+        System.out.println("18446744073709551615");
+    }
+    public static void main6666(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n= scanner.nextInt();
+        int k= scanner.nextInt();
+        int[][] ab = new int[n + 1][2];
+        for (int i = 1; i < n+1; i++) {
+            ab[i][0]= scanner.nextInt();
+            ab[i][1]= scanner.nextInt();
+        }
+        //常规算法
+        for (int i = 100000; i >=1 ; i--) {
+            //此边长下下面能不能切出k块 不能count重置
+            int count=0;
+            for (int j = 1; j <= n; j++) {
+                count=count+(ab[j][0]/i)*(ab[j][1]/i);
+            }
+            if (count>=k){
+                System.out.println(i);
+                break;
+            }
+        }
+        //二分
+        int l=1;
+        int r=100000;
+        int ret=0;
+        while(l<=r){
+            int mid=(l+r)>>>1;
+            int count=0;
+            for (int i = 1; i <= n; i++) {
+                count=count+(ab[i][0]/mid)*(ab[i][1]/mid);
+            }
+            if (count>=k){
+                //比他大 可以往右使使劲
+                l=mid+1;
+                ret=mid;
+            }
+
+            else r=mid-1;
+        }
+        System.out.println(ret);
+    }
+    static boolean qiaokeli(int[][] ab,int mid,int n,int k){
+
+        return false;
+    }
+    public static void main25(String[] args) {
+        int fz=1;
+        int fm=1;
+        for (int i = 1; i < 20; i++) {
+            fm=fm*2;
+            fz=fm+fz;
+        }
+        System.out.println(fz+"/"+fm);
+    }
+    public static void main24(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        long n= scanner.nextInt();
+        long count=n;
+        while(n>3){
+            count=count+n/3;
+            n=n/3+n%3;
+        }
+        System.out.println(count);
+    }
+    public static void main23(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n= scanner.nextInt();
+        int[] g = new int[n];
+        for (int i = 0; i < n; i++) {
+            g[i]= scanner.nextInt();
+        }
+        HashSet<Object> hashSet = new HashSet<>();
+        hashSet.add(0);
+        for (int i = 0; i < n; i++) {
+            ArrayList<Integer> list = new ArrayList(hashSet);
+            for (int k :list) {
+                hashSet.add(g[i]+k);
+                hashSet.add(Math.abs(g[i]-k));
+            }
+        }
+        hashSet.remove((Object) 0);
+        System.out.println(hashSet.size());
+    }
+    public static void main22(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n= scanner.nextInt();
+        int[][] arr = new int[n][3];
+        for (int i = 0; i < 3; i++) {
+            arr[i][0]= scanner.nextInt();
+            arr[i][1]= scanner.nextInt();
+            arr[i][2]= scanner.nextInt();
+        }
+        Arrays.sort(arr, new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                return o1[0]+o1[1]+o1[2]-o2[0]-o2[1]-o2[2];
+            }
+        });
+        long ans = 0;
+        long sum = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < 3; j++) {
+                sum = sum + arr[i][j];
+                if (j == 1) {
+                    ans = ans + sum;
+                }
+            }
+        }
+        System.out.println(ans);
+    }
+    public static void main21(String[] args) {
+        Long aLong = new Long("2021041820210418");
+        HashSet<Long> hashSet = new HashSet();
+        for (long i = 1; i*i*i<=aLong ; i++) {
+            if (aLong%i==0){
+                hashSet.add(i);
+                hashSet.add((aLong/i));
+                hashSet.add(aLong/i/i);
+            }
+        }
+        int count=0;
+        for (long l :hashSet) {
+            for (long l1 :hashSet) {
+                for (long l2 :hashSet) {
+                    if (l*l1*l2==aLong){
+                        count++;
+                    }
+                }
+            }
+        }
+        System.out.println(count);
+    }
+    public static void main20(String[] args) {
         int n=new Scanner(System.in).nextInt();
         if (n<=2) System.out.println(1);
         else if (n>2&&n<=4) System.out.println(2);
@@ -14,7 +173,6 @@ public class OJlanqiao {
         else if(n==7) System.out.println(6);
         else if(n==8) System.out.println(7);
         else if(n>=9) System.out.println(8);
-
     }
     public static void main19(String[] args) {
         LinkedList<Integer> list = new LinkedList<>();
