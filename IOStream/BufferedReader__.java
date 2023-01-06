@@ -2,10 +2,13 @@ package IOStream;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.InputStreamReader;
 
 public class BufferedReader__ {
     public static void main(String[] args) throws Exception{
         //处理流BufferedReader
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println(bufferedReader.readLine());
         String filepath="e:\\news.txt";
         FileReader fileReader = new FileReader(filepath);
         BufferedReader reader = new BufferedReader(fileReader);

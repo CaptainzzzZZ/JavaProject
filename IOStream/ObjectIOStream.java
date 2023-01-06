@@ -12,7 +12,7 @@ public class ObjectIOStream {
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(filePath));//out write是写出去到文件
         objectOutputStream.writeChar('a');
         objectOutputStream.writeDouble(9.5);
-        objectOutputStream.writeObject(new dogForSerializable("lzz",22));
+        objectOutputStream.writeObject(new dogForSerializable("lzz",22,"red"));
         objectOutputStream.close();
         System.out.println("序列化结束");
     }
