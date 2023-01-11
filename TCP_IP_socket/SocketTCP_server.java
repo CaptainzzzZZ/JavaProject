@@ -1,7 +1,6 @@
 package TCP_IP_socket;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -18,18 +17,36 @@ public class SocketTCP_server {
         Socket socket = serverSocket.accept();
         System.out.println("服务端socket"+socket.getClass());
 
-        //3.通过socket.getInputStream读入客户端写入数据通道的数据
-        InputStream inputStream = socket.getInputStream();
+//        //3.通过socket.getInputStream读入客户端写入数据通道的数据
+//        InputStream inputStream = socket.getInputStream();
+//
+//        //4.IO读入
+//        byte[] bytes = new byte[1024];
+//        int readLen=0;
+//        while((readLen=inputStream.read(bytes))!=-1){
+//            System.out.println(new String(bytes,0,readLen));
+//        }
 
-        //4.IO读入
-        byte[] bytes = new byte[1024];
-        int readLen=0;
-        while((readLen=inputStream.read(bytes))!=-1){
-            System.out.println(new String(bytes,0,readLen));
-        }
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        String line=bufferedReader.readLine();
+        System.out.println(line);
+
+        //5.回复客户端一个"hello client"
+//        OutputStream outputStream = socket.getOutputStream();
+//        outputStream.write("hello client".getBytes());
+        BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+        bufferedWriter.write("hello client字符流");
+        bufferedWriter.newLine();
+        bufferedWriter.flush();
+
+        //在服务端要给一个结束标记，不然客户端会认为你没有传输结束
+        socket.shutdownOutput();
+
+//        outputStream.close();
         serverSocket.close();
         socket.close();
-        inputStream.close();
+//        inputStream.close();
+        bufferedReader.close();
         System.out.println("程序结束");
     }
 }
